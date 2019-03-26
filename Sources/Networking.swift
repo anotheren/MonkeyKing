@@ -157,7 +157,7 @@ class Networking {
                 }
             }
             guard let validData = data,
-                let jsonData = try? JSONSerialization.jsonObject(with: validData, options: .allowFragments) as? [String: Any] else {
+                let jsonData = ((try? JSONSerialization.jsonObject(with: validData, options: .allowFragments) as? [String: Any]) as [String : Any]??) else {
                     print("requst fail: JSON could not be serialized because input data was nil.")
                     return
             }
@@ -185,7 +185,7 @@ class Networking {
                 }
             }
             guard let validData = data,
-                let jsonData = try? JSONSerialization.jsonObject(with: validData, options: .allowFragments) as? [String: Any] else {
+                let jsonData = ((try? JSONSerialization.jsonObject(with: validData, options: .allowFragments) as? [String: Any]) as [String : Any]??) else {
                     print("upload fail: JSON could not be serialized because input data was nil.")
                     return
             }
